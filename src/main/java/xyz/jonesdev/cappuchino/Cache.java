@@ -24,7 +24,7 @@ public interface Cache<K> {
 
   boolean has(final K key);
 
-  long estimatedSize();
+  int estimatedSize();
 
   void invalidateAll();
 }
