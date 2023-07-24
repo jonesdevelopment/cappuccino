@@ -20,6 +20,9 @@ dependencies {
   testAnnotationProcessor("org.projectlombok:lombok:1.18.28")
 }
 
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
+
 tasks {
   compileJava {
     options.encoding = "UTF-8"
