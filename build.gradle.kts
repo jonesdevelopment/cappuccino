@@ -29,7 +29,7 @@ tasks {
   }
 
   shadowJar {
-    archiveFileName.set("${rootProject.name}.jar")
+    archiveFileName.set("${rootProject.name}-${version}-SNAPSHOT.jar")
   }
 
   // This is a small wrapper tasks to simplify the building process
