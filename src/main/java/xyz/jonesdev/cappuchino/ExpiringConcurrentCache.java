@@ -26,37 +26,37 @@ import java.util.concurrent.TimeUnit;
 final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implements ExpiringCache<K> {
   @Getter
   private final long duration;
-  private boolean modified;
+  private volatile long lastCleanUpTimestamp;
+  // Add a cool-down of 2.5 seconds between each cleanUp() task.
+  // This is done to prevent any sort of performance impact.
+  private final long minElapsedBeforeClean;
 
   public ExpiringConcurrentCache(final long duration,
-                                 final TimeUnit timeUnit) {
+                                 final TimeUnit timeUnit,
+                                 final long minElapsedBeforeClean) {
     this.duration = TimeUnit.MILLISECONDS.convert(duration, timeUnit);
+    this.minElapsedBeforeClean = minElapsedBeforeClean;
   }
 
   @Override
   public void put(final K key) {
     put(key, System.currentTimeMillis());
-    modified = true;
   }
 
   @Override
   public void invalidate(final K key) {
     remove(key);
-    modified = true;
   }
 
   @Override
   public long estimatedSize() {
-    if (modified) {
-      cleanUp();
-    }
+    cleanUp();
     return size();
   }
 
   @Override
   public void invalidateAll() {
     clear();
-    modified = true;
   }
 
   @Override
@@ -66,13 +66,20 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
 
   @Override
   public void cleanUp() {
-    final long currentTimestamp = System.currentTimeMillis();
+    final long timestamp = System.currentTimeMillis();
+    final long elapsed = timestamp - lastCleanUpTimestamp;
+    // Check if this task is being executed too frequently
+    if (elapsed < minElapsedBeforeClean) {
+      // Just don't do anything
+      return;
+    }
+    lastCleanUpTimestamp = timestamp;
 
     final Iterator<Entry<K, Long>> iterator = entrySet().iterator();
     while (iterator.hasNext()) {
       final Entry<K, Long> entry = iterator.next();
       final long entryTimestamp = entry.getValue();
-      final long delay = currentTimestamp - entryTimestamp;
+      final long delay = timestamp - entryTimestamp;
 
       // Invalidate entry if duration is over
       if (delay > duration) {

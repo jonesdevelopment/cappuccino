@@ -24,7 +24,14 @@ public interface Cappuchino {
     return buildExpiring(duration, TimeUnit.MILLISECONDS);
   }
 
-  static <K> ExpiringCache<K> buildExpiring(final long duration, final TimeUnit timeUnit) {
-    return new ExpiringConcurrentCache<>(duration, timeUnit);
+  static <K> ExpiringCache<K> buildExpiring(final long duration,
+                                            final TimeUnit timeUnit) {
+    return buildExpiring(duration, timeUnit, 2500L);
+  }
+
+  static <K> ExpiringCache<K> buildExpiring(final long duration,
+                                            final TimeUnit timeUnit,
+                                            final long minElapsedBeforeClean) {
+    return new ExpiringConcurrentCache<>(duration, timeUnit, minElapsedBeforeClean);
   }
 }
