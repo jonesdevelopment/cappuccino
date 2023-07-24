@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implements ExpiringCache<K> {
   @Getter
   private final long duration;
+  private boolean modified;
 
   public ExpiringConcurrentCache(final long duration,
                                  final TimeUnit timeUnit) {
@@ -35,27 +36,32 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   @Override
   public void put(final K key) {
     put(key, System.currentTimeMillis());
+    modified = true;
   }
 
   @Override
   public void invalidate(final K key) {
     remove(key);
+    modified = true;
   }
 
   @Override
   public long estimatedSize() {
-    cleanUp();
+    if (modified) {
+      cleanUp();
+    }
     return size();
-  }
-
-  @Override
-  public boolean has(final K key) {
-    return containsKey(key);
   }
 
   @Override
   public void invalidateAll() {
     clear();
+    modified = true;
+  }
+
+  @Override
+  public boolean has(final K key) {
+    return containsKey(key);
   }
 
   @Override
