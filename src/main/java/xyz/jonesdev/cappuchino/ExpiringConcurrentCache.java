@@ -38,32 +38,54 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
     this.minElapsedBeforeClean = minElapsedBeforeClean;
   }
 
+  /**
+   * Puts a key into the map with the current timestamp
+   */
   @Override
   public void put(final K key) {
     put(key, System.currentTimeMillis());
   }
 
+  /**
+   * Removes a key from the map
+   */
   @Override
   public void invalidate(final K key) {
     remove(key);
   }
 
+  /**
+   * Cleans all entries and then returns the size of the map
+   *
+   * @see #cleanUp()
+   */
   @Override
   public int estimatedSize() {
     cleanUp();
     return size();
   }
 
+  /**
+   * Removes all entries from the map
+   */
   @Override
   public void invalidateAll() {
     clear();
   }
 
+  /**
+   * Checks if the map contains a key
+   */
   @Override
   public boolean has(final K key) {
     return containsKey(key);
   }
 
+  /**
+   * Removes all expired entries of the map
+   *
+   * @see #estimatedSize()
+   */
   @Override
   public void cleanUp() {
     final long timestamp = System.currentTimeMillis();

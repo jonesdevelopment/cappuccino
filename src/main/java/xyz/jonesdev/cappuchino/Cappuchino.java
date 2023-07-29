@@ -20,15 +20,40 @@ package xyz.jonesdev.cappuchino;
 import java.util.concurrent.TimeUnit;
 
 public interface Cappuchino {
+
+  /**
+   * Returns an expiring cache
+   *
+   * @param duration Duration in milliseconds
+   * @return ExpiringCache
+   * @param <K> Type of the key
+   */
   static <K> ExpiringCache<K> buildExpiring(final long duration) {
     return buildExpiring(duration, TimeUnit.MILLISECONDS);
   }
 
+  /**
+   * Returns an expiring cache
+   *
+   * @param duration Duration in the given unit
+   * @return ExpiringCache
+   * @param <K> Type of the key
+   * @param timeUnit Time unit of the duration
+   */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
                                             final TimeUnit timeUnit) {
     return buildExpiring(duration, timeUnit, 2500L);
   }
 
+  /**
+   * Returns an expiring cache
+   *
+   * @param duration Duration in the given unit
+   * @return ExpiringCache
+   * @param <K> Type of the key
+   * @param timeUnit Time unit of the duration
+   * @param minElapsedBeforeClean Time between each clean (in milliseconds)
+   */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
                                             final TimeUnit timeUnit,
                                             final long minElapsedBeforeClean) {
