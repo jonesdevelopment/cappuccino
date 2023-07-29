@@ -42,7 +42,7 @@ public interface Cappuchino {
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
                                             final TimeUnit timeUnit) {
-    return buildExpiring(duration, timeUnit, 2500L);
+    return buildExpiring(duration, timeUnit, 0L);
   }
 
   /**
