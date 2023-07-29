@@ -94,14 +94,27 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
    */
   @Override
   public void cleanUp() {
+    cleanUp(false);
+  }
+
+  /**
+   * Removes all expired entries of the map
+   *
+   * @param force Bypass min elapsed time check
+   * @see #estimatedSize()
+   */
+  @Override
+  public void cleanUp(final boolean force) {
     final long timestamp = System.currentTimeMillis();
-    final long elapsed = timestamp - lastCleanUpTimestamp;
-    // Check if this task is being executed too frequently
-    if (elapsed < minElapsedBeforeClean) {
-      // Just don't do anything
-      return;
+    if (!force) {
+      final long elapsed = timestamp - lastCleanUpTimestamp;
+      // Check if this task is being executed too frequently
+      if (elapsed < minElapsedBeforeClean) {
+        // Just don't do anything
+        return;
+      }
+      lastCleanUpTimestamp = timestamp;
     }
-    lastCleanUpTimestamp = timestamp;
 
     final Iterator<Entry<K, Long>> iterator = entrySet().iterator();
     while (iterator.hasNext()) {

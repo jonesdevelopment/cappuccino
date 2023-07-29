@@ -24,5 +24,7 @@ public interface ExpiringCache<K> extends Cache<K> {
 
   void cleanUp();
 
+  void cleanUp(final boolean force);
+
   ConcurrentHashMap<K, Long> asMap();
 }
