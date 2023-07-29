@@ -67,7 +67,6 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
    */
   @Override
   public int estimatedSize() {
-    cleanUp();
     return size();
   }
 
