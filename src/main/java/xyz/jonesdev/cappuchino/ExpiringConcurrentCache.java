@@ -27,7 +27,7 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   @Getter
   private final long duration;
   private volatile long lastCleanUpTimestamp;
-  // Add a cool-down of 2.5 seconds between each cleanUp() task.
+  // Add a cool-down between each cleanUp() task.
   // This is done to prevent any sort of performance impact.
   private final long minElapsedBeforeClean;
 
