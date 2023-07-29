@@ -17,8 +17,12 @@
 
 package xyz.jonesdev.cappuchino;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public interface ExpiringCache<K> extends Cache<K> {
   long getDuration();
 
   void cleanUp();
+
+  ConcurrentHashMap<K, Long> asMap();
 }

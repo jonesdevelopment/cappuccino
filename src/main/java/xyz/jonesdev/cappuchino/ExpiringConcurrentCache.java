@@ -31,6 +31,12 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   // This is done to prevent any sort of performance impact.
   private final long minElapsedBeforeClean;
 
+  // Return map instance of this class
+  @Override
+  public ConcurrentHashMap<K, Long> asMap() {
+    return this;
+  }
+
   public ExpiringConcurrentCache(final long duration,
                                  final TimeUnit timeUnit,
                                  final long minElapsedBeforeClean) {
