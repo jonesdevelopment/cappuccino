@@ -46,6 +46,8 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
 
   /**
    * Puts a key into the map with the current timestamp
+   *
+   * @param key Key to cache
    */
   @Override
   public void put(final K key) {
@@ -54,6 +56,8 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
 
   /**
    * Removes a key from the map
+   *
+   * @param key Key to invalidate
    */
   @Override
   public void invalidate(final K key) {
@@ -71,7 +75,7 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   }
 
   /**
-   * Removes all entries from the map
+   * Invalidates all entries
    */
   @Override
   public void invalidateAll() {
@@ -79,7 +83,7 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   }
 
   /**
-   * Checks if the map contains a key
+   * Checks if the map contains the given key
    */
   @Override
   public boolean has(final K key) {
@@ -89,7 +93,7 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
   /**
    * Removes all expired entries of the map
    *
-   * @see #estimatedSize()
+   * @apiNote This won't enforce minElapsedBeforeClean
    */
   @Override
   public void cleanUp() {
@@ -100,7 +104,6 @@ final class ExpiringConcurrentCache<K> extends ConcurrentHashMap<K, Long> implem
    * Removes all expired entries of the map
    *
    * @param force Bypass min elapsed time check
-   * @see #estimatedSize()
    */
   @Override
   public void cleanUp(final boolean force) {

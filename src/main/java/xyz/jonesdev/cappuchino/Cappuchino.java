@@ -27,6 +27,7 @@ public interface Cappuchino {
    * @param duration Duration in milliseconds
    * @return ExpiringCache
    * @param <K> Type of the key
+   * @see #buildExpiring(long, TimeUnit)
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration) {
     return buildExpiring(duration, TimeUnit.MILLISECONDS);
@@ -39,6 +40,7 @@ public interface Cappuchino {
    * @return ExpiringCache
    * @param <K> Type of the key
    * @param timeUnit Time unit of the duration
+   * @see #buildExpiring(long, TimeUnit, long)
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
                                             final TimeUnit timeUnit) {

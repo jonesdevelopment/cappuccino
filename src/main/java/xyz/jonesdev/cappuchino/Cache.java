@@ -18,13 +18,34 @@
 package xyz.jonesdev.cappuchino;
 
 public interface Cache<K> {
+
+  /**
+   * Puts the given key into the cache
+   *
+   * @param key Key to cache
+   */
   void put(final K key);
 
+  /**
+   * Removes the given key from the cache
+   *
+   * @param key Key to invalidate
+   */
   void invalidate(final K key);
 
+  /**
+   * @param key Key to check
+   * @return Whether the key is cached
+   */
   boolean has(final K key);
 
+  /**
+   * @return Estimated (cached) size of the cache
+   */
   int estimatedSize();
 
+  /**
+   * Invalidates every entry of the cache
+   */
   void invalidateAll();
 }

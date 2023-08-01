@@ -20,11 +20,25 @@ package xyz.jonesdev.cappuchino;
 import java.util.concurrent.ConcurrentHashMap;
 
 public interface ExpiringCache<K> extends Cache<K> {
+
+  /**
+   * @return Amount of time that has to elapse before an entry is invalidated
+   */
   long getDuration();
 
+  /**
+   * Invalidates all expired entries.
+   */
   void cleanUp();
 
+  /**
+   * @see #cleanUp()
+   * @param force Whether the minElapsedBeforeClean check should be enforced
+   */
   void cleanUp(final boolean force);
 
+  /**
+   * @return The actual ConcurrentHashMap that holds the cache
+   */
   ConcurrentHashMap<K, Long> asMap();
 }
