@@ -2,7 +2,7 @@
 ![](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)
 ![](https://img.shields.io/github/issues/jonesdevelopment/cappuccino)
 <p>
-  cappuchino is a small Java caching library used in <a href="https://github.com/jonesdevelopment/sonar-antibot">Sonar</a>.
+  cappuchino is a small Java caching library used in <a href="https://github.com/jonesdevelopment/sonar">Sonar</a>.
   <br>
   It is designed to be a basic & lightweight dependency for your Java application.
 </p>
