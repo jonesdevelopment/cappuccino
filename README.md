@@ -1,6 +1,7 @@
 ## ☕ cappuchino
-![](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)
-![](https://img.shields.io/github/issues/jonesdevelopment/cappuccino)
+[![Release](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/releases)
+[![Issues](https://img.shields.io/github/issues/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/issues)
+[![Discord](https://img.shields.io/discord/923308209769426994.svg?logo=discord)](https://jonesdev.xyz/discord)
 <p>
   cappuchino is a small Java caching library used in <a href="https://github.com/jonesdevelopment/sonar">Sonar</a>.
   <br>
