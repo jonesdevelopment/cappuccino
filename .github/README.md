@@ -1,7 +1,9 @@
 <div align="center">
   <!-- Introduction -->
-  <h1>☕ cappuccino</h1>
-  Lightweight and simple dependency for creating expiring lists in your Java application.
+  <p>
+    <h1>☕ cappuccino</h1>
+    Lightweight and simple dependency for creating expiring lists in your Java application.
+  </p>
 
   <!-- Badges & icons -->
   [![](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/releases)
