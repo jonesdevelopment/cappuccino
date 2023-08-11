@@ -32,8 +32,8 @@ public interface ExpiringCache<K> extends Cache<K> {
   void cleanUp();
 
   /**
-   * @see #cleanUp()
    * @param force Whether the minElapsedBeforeClean check should be enforced
+   * @see #cleanUp()
    */
   void cleanUp(final boolean force);
 

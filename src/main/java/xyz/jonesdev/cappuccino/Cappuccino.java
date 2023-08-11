@@ -25,8 +25,8 @@ public interface Cappuccino {
    * Returns an expiring cache
    *
    * @param duration Duration in milliseconds
+   * @param <K>      Type of the key
    * @return ExpiringCache
-   * @param <K> Type of the key
    * @see #buildExpiring(long, TimeUnit)
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration) {
@@ -37,9 +37,9 @@ public interface Cappuccino {
    * Returns an expiring cache
    *
    * @param duration Duration in the given unit
-   * @return ExpiringCache
-   * @param <K> Type of the key
+   * @param <K>      Type of the key
    * @param timeUnit Time unit of the duration
+   * @return ExpiringCache
    * @see #buildExpiring(long, TimeUnit, long)
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
@@ -50,11 +50,11 @@ public interface Cappuccino {
   /**
    * Returns an expiring cache
    *
-   * @param duration Duration in the given unit
-   * @return ExpiringCache
-   * @param <K> Type of the key
-   * @param timeUnit Time unit of the duration
+   * @param duration              Duration in the given unit
+   * @param <K>                   Type of the key
+   * @param timeUnit              Time unit of the duration
    * @param minElapsedBeforeClean Time between each clean (in milliseconds)
+   * @return ExpiringCache
    */
   static <K> ExpiringCache<K> buildExpiring(final long duration,
                                             final TimeUnit timeUnit,
