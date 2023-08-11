@@ -40,7 +40,7 @@ Second, you need to add the dependency to your project.
 <dependency>
   <groupId>xyz.jonesdev</groupId>
   <artifactId>cappuccino</artifactId>
-  <version>0.1.4-SNAPSHOT</version>
+  <version>0.1.5-SNAPSHOT</version>
 </dependency>
 ```
 
