@@ -33,7 +33,7 @@ tasks {
   }
 
   // This is a small wrapper tasks to simplify the building process
-  register("build-cappuchino") {
+  register("build-cappuccino") {
     dependsOn(clean, shadowJar)
   }
 }

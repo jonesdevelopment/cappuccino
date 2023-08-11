@@ -15,11 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package xyz.jonesdev.cappuchino;
+package xyz.jonesdev.cappuccino;
 
 import java.util.concurrent.TimeUnit;
 
-public interface Cappuchino {
+public interface Cappuccino {
 
   /**
    * Returns an expiring cache
