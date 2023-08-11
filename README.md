@@ -1,17 +1,31 @@
-## ☕ cappuchino
-[![Release](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/releases)
-[![Issues](https://img.shields.io/github/issues/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/issues)
-[![Discord](https://img.shields.io/discord/923308209769426994.svg?logo=discord)](https://jonesdev.xyz/discord)
-<p>
-  cappuchino is a small Java caching library used in <a href="https://github.com/jonesdevelopment/sonar">Sonar</a>.
+<div align="center">
+  <!-- Introduction -->
+  <p>
+    <h1>☕ cappuchino</h1>
+    Lightweight and simple dependency for creating lists that expire after a certain amount of time in your Java application.
+  </p>
+  
+  <!-- Badges & icons -->
+  [![](https://img.shields.io/github/v/release/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/releases)
+  [![](https://img.shields.io/github/issues/jonesdevelopment/cappuccino)](https://github.com/jonesdevelopment/cappuccino/issues)
+  [![](https://img.shields.io/discord/923308209769426994.svg?logo=discord)](https://jonesdev.xyz/discord)
+  [![](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
   <br>
-  It is designed to be a basic & lightweight dependency for your Java application.
-</p>
+  <br>
+  <!-- Quick navigation -->
+  [Releases](https://github.com/jonesdevelopment/cappuccino/releases)
+  |
+  [Issues](https://github.com/jonesdevelopment/cappuccino/issues)
+  |
+  [Pull Requests](https://github.com/jonesdevelopment/cappuccino/pulls)
+  |
+  [Discord](https://jonesdev.xyz/discord)
+</div>
 
-### Main purpose
+## Goal
 Create lists that expire after a certain amount of time
 
-### Example usage
+## Example usage
 First, you need to add the maven repository server to your project.
 
 ```
