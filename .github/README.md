@@ -66,7 +66,7 @@ import xyz.jonesdev.cappuccino.ExpiringCache;
 import java.util.concurrent.TimeUnit;
 
 // ...
-ExpiringCache<Account> yourExpiringCache = Cappuccino.buildExpiring(1L,TimeUnit.SECONDS);
+ExpiringCache<Account> yourExpiringCache = Cappuccino.buildExpiring(1L, TimeUnit.SECONDS);
 ```
 
 If you don't clean the cache, no values will be removed after the given duration.
