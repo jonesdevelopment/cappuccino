@@ -24,12 +24,21 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
 tasks {
+  sourceSets {
+    main {
+      java {
+        srcDirs.add(File("src/main/java"))
+      }
+    }
+  }
+
   compileJava {
     options.encoding = "UTF-8"
   }
 
   shadowJar {
     archiveFileName.set("${rootProject.name}-${version}-SNAPSHOT.jar")
+    from(sourceSets["main"].allJava) // Include all Java source files
   }
 
   // This is a small wrapper tasks to simplify the building process
