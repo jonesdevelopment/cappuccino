@@ -17,6 +17,7 @@
 
 package xyz.jonesdev.cappuccino;
 
+@SuppressWarnings("unused")
 public interface Cache<K> {
 
   /**

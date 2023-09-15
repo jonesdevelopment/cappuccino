@@ -19,6 +19,7 @@ package xyz.jonesdev.cappuccino;
 
 import java.util.concurrent.TimeUnit;
 
+@SuppressWarnings("unused")
 public interface Cappuccino {
 
   /**

@@ -19,6 +19,7 @@ package xyz.jonesdev.cappuccino;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+@SuppressWarnings("unused")
 public interface ExpiringCache<K> extends Cache<K> {
 
   /**
