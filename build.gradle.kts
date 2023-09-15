@@ -6,7 +6,7 @@ plugins {
 apply(plugin = "java")
 apply(plugin = "com.github.johnrengelman.shadow")
 
-version = "0.1.5"
+version = "0.1.6"
 
 repositories {
   mavenCentral() // Lombok
