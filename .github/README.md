@@ -29,22 +29,20 @@ Create lists that expire after a certain amount of time
 ## Example usage
 
 First, you need to add the maven repository server to your project.
-
 ```
 https://repo.jonesdev.xyz/releases/
 ```
 
-Second, you need to add the dependency to your project.
-
+Then, you need to add the dependency to your project.
 ```
 <dependency>
   <groupId>xyz.jonesdev</groupId>
   <artifactId>cappuccino</artifactId>
-  <version>0.1.5-SNAPSHOT</version>
+  <version>0.1.6-SNAPSHOT</version>
 </dependency>
 ```
 
-Then, you can create a list that expires after 1 second (= 1000 milliseconds).
+Finally, you can create a list that expires after 1 second (= 1000 milliseconds).
 
 ```java
 import xyz.jonesdev.cappuccino.Cappuccino;
