@@ -28,7 +28,7 @@ public interface ExpiringCache<K> extends Cache<K> {
   long getDuration();
 
   /**
-   * Invalidates all expired entries.
+   * Invalidates all expired entries without forcing the minElapsedBeforeClean check.
    */
   void cleanUp();
 
