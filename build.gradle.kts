@@ -36,7 +36,7 @@ tasks {
 
   shadowJar {
     archiveFileName.set("${rootProject.name}-${version}-SNAPSHOT.jar")
-    //from(sourceSets["main"].allJava) // Include all Java source files
+    from(sourceSets["main"].allJava) // Include all Java source files
   }
 
   // This is a small wrapper tasks to simplify the building process
