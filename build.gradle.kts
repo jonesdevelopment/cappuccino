@@ -6,18 +6,16 @@ plugins {
 apply(plugin = "java")
 apply(plugin = "com.github.johnrengelman.shadow")
 
-version = "0.1.6"
-
 repositories {
   mavenCentral() // Lombok
 }
 
 dependencies {
-  compileOnly("org.projectlombok:lombok:1.18.28")
-  annotationProcessor("org.projectlombok:lombok:1.18.28")
+  compileOnly("org.projectlombok:lombok:1.18.30")
+  annotationProcessor("org.projectlombok:lombok:1.18.30")
 
-  testCompileOnly("org.projectlombok:lombok:1.18.28")
-  testAnnotationProcessor("org.projectlombok:lombok:1.18.28")
+  testCompileOnly("org.projectlombok:lombok:1.18.30")
+  testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,7 +36,7 @@ tasks {
 
   shadowJar {
     archiveFileName.set("${rootProject.name}-${version}-SNAPSHOT.jar")
-    //from(sourceSets["main"].allJava) // Include all Java source files
+    from(sourceSets["main"].allJava) // Include all Java source files
   }
 
   // This is a small wrapper tasks to simplify the building process
